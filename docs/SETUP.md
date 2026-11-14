@@ -6,7 +6,7 @@ This repository renders the GitHub profile for **Ahmed Mohamed Al Farjani** (`ah
 
 | Section | Source | Runtime |
 |---------|--------|---------|
-| Stats, top languages, repository pins | [`stats-organization/github-readme-stats-action`](https://github.com/stats-organization/github-readme-stats-action) (maintained successor to `github-readme-stats`) | Generated in Actions and committed to `profile/` |
+| Stats, top languages, repository pins | [`stats-organization/github-readme-stats-action`](https://github.com/stats-organization/github-readme-stats-action) (maintained successor to `github-readme-stats`) | Generated in Actions and committed to `profile/`; core pinned to `2.3.1` |
 | Contribution activity graph | [`maurodesouza/github-readme-activity-graph-action`](https://github.com/maurodesouza/github-readme-activity-graph-action) (wraps `github-readme-activity-graph`) | Generated in Actions and committed to `profile/` |
 | Isometric contribution calendar | [`lowlighter/metrics`](https://github.com/lowlighter/metrics) (`plugin_isocalendar`) | Generated in Actions and committed to the root |
 | Contribution snake | [`Platane/snk`](https://github.com/Platane/snk) | Generated in Actions and pushed to the `output` branch |
@@ -89,6 +89,14 @@ Fine-grained tokens also work if they are granted read access to the account's r
 
 The workflows also declare `permissions: contents: write`, but the repository-level setting must allow it.
 
+Repository pin cards render the repository description. Set it before the first cards run:
+
+```powershell
+gh repo edit ahmedalfarjani/Deep-Learning-for-time-series-forecasting-on-Carbon-Dioxide --description "Deep learning for CO2 emissions time-series forecasting with TensorFlow/Keras."
+```
+
+The stats action is pinned to core `2.3.1`. Version `2.2.0` did not render repository descriptions in pin cards.
+
 ## 4. Run the workflows
 
 The `push` trigger starts all three workflows after the first push. To run them manually:
@@ -165,6 +173,8 @@ Expected: all URLs return `200` with `image/svg+xml`.
 | `metrics.yml` | Daily at 03:00 UTC | `main` (`github-metrics-isocalendar.svg`) |
 | `cards.yml` | Daily at 03:30 UTC | `main` (`profile/*.svg`) |
 | `snake.yml` | Daily at 04:00 UTC | `output` branch |
+
+All three workflows ignore pushes that only touch `README.md` or `docs/`, because those files do not affect the generated assets.
 
 `metrics.yml` and `cards.yml` share the `profile-readme` concurrency group so their commits do not race. `snake.yml` uses a separate group.
 
@@ -245,6 +255,8 @@ Checked on 14 November 2026:
 | `trophygithubreadmelang.cybee.dpdns.org` | 200, `image/svg+xml` |
 | `github-stats-extended.vercel.app` | 200, `image/svg+xml` |
 | `github-readme-activity-graph-delta.vercel.app` | 200, `image/svg+xml` |
+| GitHub profile page | 200, README and generated image URLs present |
+| GitHub Camo proxy (streak, trophy, skill icons) | 200, `image/svg+xml` |
 | `github-readme-stats.vercel.app` | 503, deployment paused (not used) |
 | `github-profile-trophy.vercel.app` | 402, deployment disabled (not used) |
 | `github-readme-activity-graph.vercel.app` | 402, deployment disabled (not used) |
