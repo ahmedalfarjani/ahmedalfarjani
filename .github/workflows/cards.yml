@@ -29,6 +29,7 @@ jobs:
           card: stats
           options: "username=ahmedalfarjani&show_icons=true&hide_rank=true&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9"
           path: profile/stats-dark.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Stats card (light)
@@ -37,6 +38,7 @@ jobs:
           card: stats
           options: "username=ahmedalfarjani&show_icons=true&hide_rank=true&hide_border=true&bg_color=FFFFFF&title_color=0969DA&icon_color=0969DA&text_color=24292F"
           path: profile/stats-light.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Top languages card (dark)
@@ -45,6 +47,7 @@ jobs:
           card: top-langs
           options: "username=ahmedalfarjani&layout=compact&langs_count=6&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9"
           path: profile/top-langs-dark.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Top languages card (light)
@@ -53,6 +56,7 @@ jobs:
           card: top-langs
           options: "username=ahmedalfarjani&layout=compact&langs_count=6&hide_border=true&bg_color=FFFFFF&title_color=0969DA&text_color=24292F"
           path: profile/top-langs-light.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Repository pin — CO2 forecasting (dark)
@@ -61,6 +65,7 @@ jobs:
           card: pin
           options: "username=ahmedalfarjani&repo=Deep-Learning-for-time-series-forecasting-on-Carbon-Dioxide&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9"
           path: profile/pin-deep-learning-dark.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Repository pin — CO2 forecasting (light)
@@ -69,6 +74,7 @@ jobs:
           card: pin
           options: "username=ahmedalfarjani&repo=Deep-Learning-for-time-series-forecasting-on-Carbon-Dioxide&hide_border=true&bg_color=FFFFFF&title_color=0969DA&icon_color=0969DA&text_color=24292F"
           path: profile/pin-deep-learning-light.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Repository pin — InvenTree (dark)
@@ -77,6 +83,7 @@ jobs:
           card: pin
           options: "username=ahmedalfarjani&repo=InvenTree&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9"
           path: profile/pin-inventree-dark.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Repository pin — InvenTree (light)
@@ -85,6 +92,7 @@ jobs:
           card: pin
           options: "username=ahmedalfarjani&repo=InvenTree&hide_border=true&bg_color=FFFFFF&title_color=0969DA&icon_color=0969DA&text_color=24292F"
           path: profile/pin-inventree-light.svg
+          core_version: "2.3.1"
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Activity graph (dark)
