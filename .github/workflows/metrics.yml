@@ -1,0 +1,33 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-readme
+  cancel-in-progress: false
+
+jobs:
+  isocalendar:
+    name: Isometric contribution calendar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate isometric calendar
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          user: ahmedalfarjani
+          filename: github-metrics-isocalendar.svg
+          template: classic
+          base: ""
+          config_timezone: Africa/Tripoli
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
